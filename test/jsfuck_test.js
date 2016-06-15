@@ -1,6 +1,9 @@
 /*jshint -W061 */
 'use strict';
 
+global.atob = require('atob');
+global.btoa = require('btoa');
+
 var JSFuck = require('../jsfuck.js').JSFuck,
 	test_encode = function (test, value) {
 		var encoded = JSFuck.encode(value),
