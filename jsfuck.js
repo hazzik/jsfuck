@@ -147,17 +147,12 @@
     }
 
     function digitReplacer(_,x) { return MAPPING[x]; }
+    function digitReplacer2(x) { return MAPPING[x]; }
 
     function numberReplacer(_,y) {
-      var values = y.split("");
-      var head = +(values.shift());
-      var output = "+[]";
+      i=0; // it needs to make replacing recursive
 
-      if (head > 0){ output = "+" + SIMPLE.true; }
-      for (i = 1; i < head; i++){ output = "+" + SIMPLE.true + output; }
-      if (head > 1){ output = output.substr(1); }
-
-      return [output].concat(values).join("+").replace(/(\d)/g, digitReplacer);
+      return y.split("").map(digitReplacer2).join("+");
     }
 
     for (i = MIN; i <= MAX; i++){
