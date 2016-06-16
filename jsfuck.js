@@ -126,6 +126,7 @@
   function fillMissingDigits(){
     var output, number, i;
 
+    //MAPPING[0] = "[+[]]";
     for (number = 0; number < 10; number++){
 
       output = "+[]";
@@ -136,6 +137,7 @@
 
       MAPPING[number] = "[" + output + "]";
     }
+    MAPPING[1] = "[++[+[]][+[]]]";
   }
 
   function replaceMap(){
