@@ -126,20 +126,14 @@
   function fillMissingDigits(){
     var output, number, i;
 
-    //MAPPING[0] = "[+[]]";
     for (number = 0; number < 10; number++){
 
       output = "+[]";
 
-      if (number > 0){ output = "+" + SIMPLE.true; }
-      for (i = 1; i < number; i++){ output = "+" + SIMPLE.true + output; }
-      if (number > 1){ output = output.substr(1); }
+      for (i = 0; i < number; i++){ output = "++[" + output + "][+[]]"; }
 
       MAPPING[number] = "[" + output + "]";
     }
-    MAPPING[0] = "[+[]]";
-    MAPPING[1] = "[++[+[]][+[]]]";
-    MAPPING[2] = "[++[++[+[]][+[]]][+[]]]";
   }
 
   function replaceMap(){
