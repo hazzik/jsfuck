@@ -137,7 +137,9 @@
 
       MAPPING[number] = "[" + output + "]";
     }
+    MAPPING[0] = "[+[]]";
     MAPPING[1] = "[++[+[]][+[]]]";
+    MAPPING[2] = "[++[++[+[]][+[]]][+[]]]";
   }
 
   function replaceMap(){
