@@ -19,14 +19,14 @@
     'Number':   '[0][0]',
     'String':   '[[]+[]][0]',
     'Boolean':  '[[]==[]][0]',
-    'Function': '[]["fill"]',
+    'Function': '[]["find"]',
     'RegExp':   'Function("return/"+false+"/")``'
   };
 
   var MAPPING = {
     'a':   '[NaN+""][0][1]',
     'b':   '[Number+[]][0][12]',
-    'c':   '[[]["fill"]+""][0][3]',
+    'c':   '[[]["find"]+""][0][3]',
     'd':   '[undefined+""][0][2]',
     'e':   '[undefined+""][0][3]',
     'f':   '[false+""][0][0]',
@@ -38,14 +38,14 @@
     'l':   '[false+""][0][2]',
     'm':   '[Number+""][0][11]',
     'n':   '[undefined+""][0][1]',
-    'o':   '[true+[]["fill"]][0][10]',
+    'o':   '[true+[]["find"]][0][10]',
     'p':   '[+[211]][0]["to"+String["name"]](31)[1]',
     'q':   '[+[212]][0]["to"+String["name"]](31)[1]',
     'r':   '[true+""][0][1]',
     's':   '[false+""][0][3]',
     't':   '[true+""][0][0]',
     'u':   '[undefined+""][0][0]',
-    'v':   '[[]["fill"]+[]][0][23]',
+    'v':   '[[]["find"]+[]][0][23]',
     'w':   '[+[32]][0]["to"+String["name"]](33)',
     'x':   '[+[101]][0]["to"+String["name"]](34)[1]',
     'y':   '[NaN+[Infinity]][0][10]',
@@ -54,7 +54,7 @@
     'A':   '[+[]+Array][0][10]',
     'B':   '[+[]+Boolean][0][10]',
     'C':   'Function("return escape")``([""][0]["italics"]``)[2]',
-    'D':   'Function("return escape")``([]["fill"])["slice"]("-1")',
+    'D':   'Function("return escape")``([]["find"])["slice"]("-1")',
     'E':   '[RegExp+""][0][12]',
     'F':   '[+[]+Function][0][10]',
     'G':   '[false+Function("return Date")````][0][30]',
@@ -78,16 +78,16 @@
     'Y':   USE_CHAR_CODE,
     'Z':   USE_CHAR_CODE,
 
-    ' ':   '[NaN+[]["fill"]][0][11]',
+    ' ':   '[NaN+[]["find"]][0][11]',
     '!':   USE_CHAR_CODE,
     '"':   '[""][0]["fontcolor"]``[12]',
     '#':   USE_CHAR_CODE,
     '$':   USE_CHAR_CODE,
-    '%':   'Function("return escape")``([]["fill"])[21]',
+    '%':   'Function("return escape")``([]["find"])[21]',
     '&':   '[""][0]["link"](0+")[10]',
     '\'':  USE_CHAR_CODE,
-    '(':   '[undefined+[]["fill"]][0][22]',
-    ')':   '[[0]+false+[]["fill"]][0][20]',
+    '(':   '[undefined+[]["find"]][0][22]',
+    ')':   '[[0]+false+[]["find"]][0][20]',
     '*':   USE_CHAR_CODE,
     '+':   '[+[+true+[true+[]][0][true+true+true]+[+true]+[0]+[0]]+[]][0][2]',
     ',':   '[[]["slice"]["call"](false+"")+""][0][1]',
@@ -107,9 +107,9 @@
     '^':   USE_CHAR_CODE,
     '_':   USE_CHAR_CODE,
     '`':   USE_CHAR_CODE,
-    '{':   '[true+[]["fill"]][0][20]',
+    '{':   '[true+[]["find"]][0][20]',
     '|':   USE_CHAR_CODE,
-    '}':   '[true+[]["fill"]][0][36]',
+    '}':   '[true+[]["find"]][0][36]',
     '~':   USE_CHAR_CODE
   };
 
@@ -272,12 +272,12 @@
 
     if (wrapWithEval){
       if (runInParentScope){
-        output = "[][" + encode("fill") + "]" +
+        output = "[][" + encode("find") + "]" +
           "[" + encode("constructor") + "]" +
           "(" + encode("return eval") +  ")()" +
           "(" + output + ")";
       } else {
-        output = "[][" + encode("fill") + "]" +
+        output = "[][" + encode("find") + "]" +
           "[" + encode("constructor") + "]" +
           "(" + output + ")()";
       }
