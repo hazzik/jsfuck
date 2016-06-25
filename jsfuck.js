@@ -11,16 +11,16 @@
     'true':       '[[]==+[]][+[]]',
     'undefined':  '[][[]]',
     'NaN':        '+[][[]]',
-    'Infinity':   '+[+true+[true+[]][+[]][true+true+true]+[+true]+[+[]]+[+[]]+[+[]]]' // +"1e1000"
+    'Infinity':   '++[+[]][+[]]/+[]' // +"1e1000"
   };
 
   var CONSTRUCTORS = {
     'Array':    '[]',
     'Number':   '[0][0]',
     'String':   '[[]+[]][0]',
-    'Boolean':  '[[]==[]][0]',
+    'Boolean':  '[/[]/["unicode"]][0]',
     'Function': '[]["find"]',
-    'RegExp':   'Function("return/"+false+"/")``'
+    'RegExp':   '/[]/'
   };
 
   var MAPPING = {
@@ -29,25 +29,25 @@
     'c':   '[[]["find"]+""][0][3]',
     'd':   '[undefined+""][0][2]',
     'e':   '[undefined+""][0][3]',
-    'f':   '[false+""][0][0]',
-    'g':   '[false+[0]+String][0][20]',
+    'f':   '[undefined+""][0][4]',
+    'g':   '[String+""][0][14]',
     'h':   '[+[101]][0]["to"+String["name"]](21)[1]',
-    'i':   '[[false]+undefined][0][10]',
+    'i':   '[undefined+""][0][5]',
     'j':   '[[]["entries"]``+[]][0][3]',
     'k':   '[+[20]][0]["to"+String["name"]](21)',
-    'l':   '[false+""][0][2]',
+    'l':   '[/[]/["unicode"]+""][0][2]',
     'm':   '[Number+""][0][11]',
     'n':   '[undefined+""][0][1]',
-    'o':   '[true+[]["find"]][0][10]',
-    'p':   '[+[211]][0]["to"+String["name"]](31)[1]',
+    'o':   '[[]["find"]+""][0][6]',
+    'p':   '[RegExp+""][0][14]',
     'q':   '[+[212]][0]["to"+String["name"]](31)[1]',
-    'r':   '[true+""][0][1]',
-    's':   '[false+""][0][3]',
-    't':   '[true+""][0][0]',
+    'r':   '[/[/]/["test"]`/`+""][0][1]',
+    's':   '[/[]/["unicode"]+""][0][3]',
+    't':   '[[]["find"]+""][0][4]',
     'u':   '[undefined+""][0][0]',
     'v':   '[[]["find"]+[]][0][23]',
     'w':   '[+[32]][0]["to"+String["name"]](33)',
-    'x':   '[+[101]][0]["to"+String["name"]](34)[1]',
+    'x':   '[RegExp+""][0][13]',
     'y':   '[NaN+[Infinity]][0][10]',
     'z':   '[+[35]][0]["to"+String["name"]](36)',
 
@@ -65,7 +65,7 @@
     'L':   USE_CHAR_CODE,
     'M':   '[true+Function("return Date")````][0][30]',
     'N':   '[NaN+""][0][0]',
-    'O':   '[NaN+Function("return{}")``][0][11]',
+    'O':   '[0+[]["entries"]``["constructor"]+""][0][10]',
     'P':   USE_CHAR_CODE,
     'Q':   USE_CHAR_CODE,
     'R':   '[+[]+RegExp][0][10]',
@@ -86,20 +86,20 @@
     '%':   'Function("return escape")``([]["find"])[21]',
     '&':   '[""][0]["link"](0+")[10]',
     '\'':  USE_CHAR_CODE,
-    '(':   '[undefined+[]["find"]][0][22]',
-    ')':   '[[0]+false+[]["find"]][0][20]',
+    '(':   '[[]["find"]+""][0][13]',
+    ')':   '[[]["find"]+""][0][14]',
     '*':   USE_CHAR_CODE,
     '+':   '[+[+true+[true+[]][0][true+true+true]+[+true]+[0]+[0]]+[]][0][2]',
     ',':   '[[]["slice"]["call"](false+"")+""][0][1]',
     '-':   '[+[.+[0000000001]]+""][0][2]',
-    '.':   '[+[+true+[+true]+[true+[]][0][true+true+true]+[true+true]+[0]]+[]][0][+true]',
-    '/':   '[false+[0]][0]["italics"]``[10]',
+    '.':   '[1/2+""][0][1]',
+    //'/':   '[false+[0]][0]["italics"]``[10]',
     ':':   '[RegExp()+""][0][3]',
     ';':   '[""][0]["link"](")[14]',
     '<':   '[""][0]["italics"]``[0]',
     '=':   '[""][0]["fontcolor"]``[11]',
     '>':   '[""][0]["italics"]``[2]',
-    '?':   '(RegExp()+"")[2]',
+    '?':   '(RegExp``+"")[2]',
     '@':   USE_CHAR_CODE,
     '[':   '[[]["entries"]``+""][0][0]',
     '\\':  USE_CHAR_CODE,
@@ -182,7 +182,7 @@
   }
 
   function replaceStrings(){
-    var regEx = /[^\[\]\(\)\+\`\=]{1}/g,
+    var regEx = /[^\[\]\(\)\+\`\=\/]{1}/g,
       all, value, missing,
       count = MAX - MIN;
 

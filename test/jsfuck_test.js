@@ -16,16 +16,16 @@ var fs = require('fs');
 exports['integration'] = {
 	'test': function(test) {
 		var file = fs.openSync('output.txt', 'w+'),
-			simple = "`[]=+";
+			simple = "[]+/`";
 
-		simple += "j<>/\"\n";
+		simple += "";
 
 
 		for (var i = MIN; i < MAX; i++) {
 			var c = String.fromCharCode(i),
 				encoded = JSFuck.encode(c);
 
-			if (/^[\[\]\+\=]+$/.test(encoded)){
+			if (/^[\[\]\+\/\`]+$/.test(encoded)){
 				simple += c;
 			}
 
@@ -60,7 +60,7 @@ exports['integration'] = {
 			console.log("  ", property.green, ":", value);
 		}
 
-		var types = [simple, 12, [23], false, [].slice];
+		var types = [simple, 12, [23], false, [].slice, /[]/];
 
 		types.forEach(function(instance){
 			var constructor = instance.constructor,
