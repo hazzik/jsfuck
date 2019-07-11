@@ -116,9 +116,13 @@
   const GLOBAL = 'Function("return this")()';
 
   function fillMissingChars(){
+    var base16code, escape;
     for (var key in MAPPING){
       if (MAPPING[key] === USE_CHAR_CODE){
-        MAPPING[key] = 'Function("return unescape")()("%"'+ key.charCodeAt(0).toString(16).replace(/(\d+)/g, "+($1)+\"") + '")';
+        //Function('return"\\uXXXX"')()
+        base16code = key.charCodeAt(0).toString(16);
+        escape = ('0000'+base16code).substring(base16code.length).split('').join('+');
+        MAPPING[key] = 'Function("return"+' + MAPPING['"'] + '+"\\u"+' + escape + '+' + MAPPING['"'] + ')()';
       }
     }
   }
